@@ -1,0 +1,5 @@
+<%= form_for @post do |f| %>
+  <%= f.text_field :body, id: "post-body" %>
+  <%= f.file_field :file, id: "post-file" %>
+  <%= f.submit "Submit", id: "post-new-submit" %>
+<% end %>
