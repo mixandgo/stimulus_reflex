@@ -11,6 +11,11 @@
   </head>
 
   <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= link_to "Sign up", new_user_registration_path, id: "user-signup" %>
+    <%= link_to "Sign out", destroy_user_session_path, method: :delete, id: "user-signout" %>
+    <%= link_to "Sign in", new_user_session_path, id: "user-signin" %>
     <%= yield %>
   </body>
 </html>

@@ -1,13 +1,9 @@
 Given("I'm logged in") do
-  # visit /
-  # create account
-  # sign out
-  # click login link
-  # fill in the login form
-  # submit the form
-  # should see message
   visit "/"
-  expect(page).to have_content("Welcome")
+  sign_up
+  sign_out
+  sign_in
+  expect(page).to have_content("Welcome mixandgo")
 end
 
 When('I create a new post') do
