@@ -58,3 +58,16 @@ end
 # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
 Cucumber::Rails::Database.javascript_strategy = :truncation
 
+# Code from: https://github.com/teamcapybara/capybara/blob/master/lib/capybara/registrations/drivers.rb
+# Switches: https://peter.sh/experiments/chromium-command-line-switches/
+Capybara.register_driver :selenium_chrome_headless do |app|
+  browser_options = ::Selenium::WebDriver::Chrome::Options.new.tap do |opts|
+    opts.args << "--window-size=1920,1080"
+    opts.args << "--headless"
+  end
+  Capybara::Selenium::Driver
+    .new(app, browser: :chrome, options: browser_options)
+end
+
+Capybara.javascript_driver = :selenium_chrome_headless
+Capybara.asset_host = "http://localhost:3001"

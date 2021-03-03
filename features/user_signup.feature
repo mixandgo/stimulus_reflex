@@ -1,3 +1,4 @@
+@javascript
 Feature: User signup
 
   Scenario: I can create an account

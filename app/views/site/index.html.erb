@@ -1,3 +1,5 @@
 <%= link_to "New post", new_post_path, id: "post-new" %>
 
-<%= render partial: "posts/post", collection: @posts %>
+<div id="posts">
+  <%= render partial: "posts/post", collection: @posts %>
+</div>

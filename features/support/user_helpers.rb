@@ -1,4 +1,5 @@
 def sign_up
+  visit "/"
   click_on "user-signup"
   fill_in "user-email", with: "jdoe@example.com"
   fill_in "user-username", with: "mixandgo"

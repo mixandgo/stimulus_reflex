@@ -142,6 +142,7 @@ GEM
     ffi (1.14.2)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    hiredis (0.6.3)
     i18n (1.8.9)
       concurrent-ruby (~> 1.0)
     jbuilder (2.11.2)
@@ -322,6 +323,7 @@ DEPENDENCIES
   database_cleaner
   devise
   factory_bot_rails
+  hiredis
   jbuilder (~> 2.7)
   listen (~> 3.3)
   pry-byebug
@@ -329,7 +331,7 @@ DEPENDENCIES
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.1)
-  redis (~> 4.2)
+  redis (>= 4.2)
   rexml
   rspec-rails (~> 4.0.2)
   sass-rails (>= 6)
