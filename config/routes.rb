@@ -5,5 +5,9 @@ Rails.application.routes.draw do
   }
   root "site#index"
 
-  resources :posts, only: [:new, :create]
+  resources :posts, only: [:new, :create] do
+    member do
+      resources :likes, only: [:create]
+    end
+  end
 end

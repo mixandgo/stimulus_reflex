@@ -1,4 +1,22 @@
 <div class="instacard">
    <div class="instacard-body"><%= post.body %></div>
    <div><%= image_tag post.file, class: "instacard-image" %></div>
+   <div>
+     <% if post.liked?(current_user) %>
+      <%= button_to likes_path(post), class: "instacard-like-icon post-like" do %>
+        <%= image_tag "liked.png", class: "" %>
+      <% end %>
+    <% else %>
+      <%= button_to likes_path(post), class: "instacard-like-icon post-like" do %>
+        <%= image_tag "like.png", class: "" %>
+      <% end %>
+    <% end %>
+     <%= image_tag "comment.png", class: "instacard-jomment-icon" %>
+     <%= image_tag "share.png", class: "instacard-share-icon" %>
+     <%= image_tag "save.png", class: "instacard-save-icon" %>
+     <div class="clearfix"></div>
+   </div>
+   <div class="instacard-likes">
+     <%= post.likes %> like
+   </div>
 </div>
