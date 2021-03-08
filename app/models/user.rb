@@ -4,6 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :user_posts
-  has_many :posts, through: :user_posts
+  has_many :likes
+  has_many :posts
 end
