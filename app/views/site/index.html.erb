@@ -1,5 +1,7 @@
 <%= link_to "New post", new_post_path, id: "post-new" %>
 
+<% if user_signed_in? %>
 <div id="posts">
   <%= render partial: "posts/post", collection: @posts %>
 </div>
+<% end %>

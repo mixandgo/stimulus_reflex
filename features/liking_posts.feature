@@ -1,3 +1,4 @@
+@javascript
 Feature: Liking posts
 
   Scenario: I can like a post
@@ -5,3 +6,8 @@ Feature: Liking posts
     When I like the post
     Then the like icon should be enabled
     And I the number of likes should change
+
+  Scenario: I can see multiple likes
+    Given I've liked my post
+    When someone else likes my post
+    Then I should see the number of likes increase without reloading the page

@@ -32,7 +32,7 @@ Given("I've created a new post") do
 end
 
 When('I like the post') do
-  find(".post-like", match: :first).click
+  like_post
 end
 
 Then('the like icon should be enabled') do
@@ -41,4 +41,21 @@ end
 
 Then('I the number of likes should change') do
   expect(page).to have_content("1 like")
+end
+
+Given("I've liked my post") do
+  sign_up
+  create_post
+  like_post
+end
+
+When("someone else likes my post") do
+  Capybara.using_session("browser2") do
+    sign_up(email: "jdoe2@example.com")
+    like_post
+  end
+end
+
+Then("I should see the number of likes increase without reloading the page") do
+  expect(page).to have_content("2 likes")
 end

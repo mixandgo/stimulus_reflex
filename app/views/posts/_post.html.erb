@@ -17,6 +17,6 @@
      <div class="clearfix"></div>
    </div>
    <div class="instacard-likes">
-     <%= post.likes %> like
+     <%= pluralize post.likes.count, "like" %>
    </div>
 </div>
