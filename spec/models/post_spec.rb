@@ -4,13 +4,25 @@ RSpec.describe Post, type: :model do
   it { is_expected.to have_many(:likes) }
 
   describe "#like!" do
-    it "creates a recrod in the db" do
+    it "creates a like record" do
       user = create(:user)
       post = create(:post, user_id: user.id)
 
       expect do
         post.like!(user)
       end.to change { post.likes.count }.from(0).to(1)
+    end
+  end
+
+  describe "#unlike!" do
+    it "removes the like record" do
+      user = create(:user)
+      post = create(:post, user_id: user.id)
+      post.like!(user)
+
+      expect do
+        post.unlike!(user)
+      end.to change { post.likes.count }.from(1).to(0)
     end
   end
 

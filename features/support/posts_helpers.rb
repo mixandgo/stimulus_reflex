@@ -8,3 +8,7 @@ end
 def like_post
   find(".post-like", match: :first).click
 end
+
+def unlike_post
+  find(".post-unlike", match: :first).click
+end

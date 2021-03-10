@@ -40,4 +40,13 @@ class PostReflex < ApplicationReflex
       html: ActionController::Base.helpers.pluralize(post.likes.count, "like")
     ).broadcast
   end
+
+  def unlike
+    post = Post.find(element.dataset[:id])
+    post.unlike!(current_user)
+    cable_ready["posts"].inner_html(
+      selector: "#instacard-post-#{post.id}-likes",
+      html: ActionController::Base.helpers.pluralize(post.likes.count, "like")
+    ).broadcast
+  end
 end

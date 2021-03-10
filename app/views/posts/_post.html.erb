@@ -3,7 +3,7 @@
    <div><%= image_tag asset_path(rails_blob_path(post.file)), class: "instacard-image" %></div>
    <div>
      <% if post.liked?(current_user) %>
-       <%= button_to likes_path(post), class: "instacard-like-icon post-like" do %>
+       <%= button_to likes_path(post), class: "instacard-like-icon post-unlike", data: { reflex: "click->PostReflex#unlike", id: post.id } do %>
          <%= image_tag "liked.png", class: "" %>
        <% end %>
     <% else %>
