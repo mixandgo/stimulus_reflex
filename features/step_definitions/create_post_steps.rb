@@ -16,7 +16,7 @@ end
 
 Given('I open a second browser window') do
   Capybara.using_session("browser2") do
-    visit "/"
+    sign_up(email: "jdoe2@example.com")
   end
 end
 
