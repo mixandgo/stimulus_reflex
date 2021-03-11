@@ -17,13 +17,12 @@ body {
 
 .instacard {
   border: 1px solid #ccc;
-  width: 614px;
   margin-bottom: 2rem;
 }
 
 .instacard-header {
   height: 60px;
-  padding: 16px;
+  padding: 1rem;
   margin: 0;
   vertical-align: middle;
 }

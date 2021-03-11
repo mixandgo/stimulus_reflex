@@ -1,22 +1,27 @@
 <div class="instacard" id="instacard-post-<%= post.id %>">
-   <div class="instacard-body"><%= post.body %></div>
-   <div><%= image_tag asset_path(rails_blob_path(post.file)), class: "instacard-image" %></div>
-   <div>
-     <% if post.liked?(current_user) %>
-       <%= button_to likes_path(post), class: "instacard-like-icon post-unlike", data: { reflex: "click->PostReflex#unlike", id: post.id } do %>
-         <%= image_tag "liked.png", class: "" %>
-       <% end %>
+  <div class="instacard-header">
+    <span class="instacard-actions">···</span>
+    <div><%= image_tag "logo.png", class: "instacard-profile-image" %></div>
+    <span class="instacard-profile-name"><%= current_user.username %></span>
+  </div>
+  <div class="instacard-body p-4"><%= post.body %></div>
+  <div><%= image_tag post.file, class: "instacard-image" %></div>
+  <div>
+    <% if post.liked?(current_user) %>
+      <%= button_to likes_path(post), class: "instacard-like-icon post-unlike", data: { reflex: "click->PostReflex#unlike", id: post.id } do %>
+        <%= image_tag "liked.png", class: "" %>
+      <% end %>
     <% else %>
       <%= button_to likes_path(post), class: "instacard-like-icon post-like", data: { reflex: "click->PostReflex#like", id: post.id } do %>
         <%= image_tag "like.png", class: "" %>
       <% end %>
     <% end %>
-     <%= image_tag "comment.png", class: "instacard-jomment-icon" %>
-     <%= image_tag "share.png", class: "instacard-share-icon" %>
-     <%= image_tag "save.png", class: "instacard-save-icon" %>
-     <div class="clearfix"></div>
-   </div>
-   <div class="instacard-likes" id="instacard-post-<%= post.id %>-likes">
-     <%= pluralize post.likes.count, "like" %>
-   </div>
+    <%= image_tag "comment.png", class: "instacard-comment-icon" %>
+    <%= image_tag "share.png", class: "instacard-share-icon" %>
+    <%= image_tag "save.png", class: "instacard-save-icon" %>
+    <div class="clearfix"></div>
+  </div>
+  <div class="instacard-likes" id="instacard-post-<%= post.id %>-likes">
+    <%= pluralize post.likes.count, "like" %>
+  </div>
 </div>

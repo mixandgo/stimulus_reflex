@@ -13,6 +13,9 @@
   },
   "version": "0.1.0",
   "devDependencies": {
+    "autoprefixer": "^9.8.6",
+    "postcss": "^7.0.35",
+    "tailwindcss": "^2.0.1-compat",
     "webpack-dev-server": "^3.11.2"
   }
 }
