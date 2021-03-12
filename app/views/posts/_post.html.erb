@@ -13,7 +13,7 @@
       <% end %>
     <% else %>
       <%= button_to likes_path(post), class: "instacard-like-icon post-like", data: { reflex: "click->PostReflex#like", id: post.id } do %>
-        <%= image_tag "like.png", class: "" %>
+      <%= image_tag "like.png", class: "" %>
       <% end %>
     <% end %>
     <%= image_tag "comment.png", class: "instacard-comment-icon" %>
@@ -23,5 +23,16 @@
   </div>
   <div class="instacard-likes" id="instacard-post-<%= post.id %>-likes">
     <%= pluralize post.likes.count, "like" %>
+  </div>
+  <div class="instacard-comments">
+    <% post.comments.each do |comment| %>
+      <%= render partial: "comments/comment", locals: { comment: comment } %>
+    <% end %>
+  </div>
+  <div class="instacard-comment-form">
+    <%= form_for Comment.new, url: comments_path(post) do |f| %>
+      <%= f.text_field :body, class: "instacard-comment-form-input", id: "" %>
+      <%= f.submit "Post", class: "instacard-comment-form-submit" %>
+    <% end %>
   </div>
 </div>

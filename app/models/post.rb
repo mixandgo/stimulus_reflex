@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
   has_one_attached :file
   has_many :likes
+  has_many :comments
 
   def like!(user)
     likes << Like.new(user: user)
